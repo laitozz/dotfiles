@@ -1,10 +1,6 @@
-# run sway
-
-# zmodload zsh/zprof
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
@@ -17,9 +13,8 @@ source ~/Git/zsh-snap/znap.zsh  # Start Znap
 znap source romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# znap source zsh-users/zsh-autosuggestions
-znap source zdharma-continuum/fast-syntax-highlighting
 # `znap source` automatically downloads and starts your plugins.
+znap source zdharma-continuum/fast-syntax-highlighting
 znap source marlonrichert/zsh-autocomplete
 
 # `znap eval` caches and runs any kind of command output for you.
@@ -55,7 +50,6 @@ bindkey -s '^[n' 'nvim'
 
 # Backwards i-search 
 bindkey -s '' history-incremental-pattern-search-backward
-
 
 # Better history navigation
 bindkey '' up-history
