@@ -1,9 +1,4 @@
 # run sway
-# TODO: move to zinit or similar
-if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -ge 1 ]; then
-	sway
-	exit
-fi
 
 # zmodload zsh/zprof
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -69,27 +64,3 @@ bindkey '' down-history
 fpath+=~/.zfunc
 
 compinit
-
-# if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-
-
-## TODO: conditional zoxide eval
-# znap eval zoxide "zoxide init zsh"
-# eval "$(zoxide init zsh)"
-
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ -O LOGIN ]]; then
-    # TODO: copy fish script for not always attaching
-  exec tmux attach
-fi
-
-# zprof
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[ -f "/home/user/.ghcup/env" ] && source "/home/user/.ghcup/env" # ghcup-env
-
-# TODO: conditional broot management
-# source /home/user/.config/broot/launcher/bash/br
