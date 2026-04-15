@@ -1,21 +1,23 @@
+# zmodload zsh/zprof
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Download Znap, if it's not there yet.
-[[ -f ~/Git/zsh-snap/znap.zsh ]] ||
+[[ -f ~/.zsh_plugings/zsh-snap/znap.zsh ]] ||
     git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
+        https://github.com/marlonrichert/zsh-snap.git ~/.zsh_plugings/zsh-snap
 
-source ~/Git/zsh-snap/znap.zsh  # Start Znap
+source ~/.zsh_plugings/zsh-snap/znap.zsh  # Start Znap
 
 # `znap prompt` makes your prompt visible in just 15-40ms!
-znap source romkatv/powerlevel10k
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# znap prompt romkatv/powerlevel10k
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+znap prompt sindresorhus/pure
 
 # `znap source` automatically downloads and starts your plugins.
-znap source zdharma-continuum/fast-syntax-highlighting
 znap source marlonrichert/zsh-autocomplete
+znap source zdharma-continuum/fast-syntax-highlighting
 
 # `znap eval` caches and runs any kind of command output for you.
 
@@ -57,4 +59,6 @@ bindkey '' down-history
 
 fpath+=~/.zfunc
 
-compinit
+# compinit
+ 
+# zprof
