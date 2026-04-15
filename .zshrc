@@ -1,29 +1,15 @@
-# zmodload zsh/zprof
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-# Download Znap, if it's not there yet.
-[[ -f ~/.zsh_plugings/zsh-snap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/.zsh_plugings/zsh-snap
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
 
-source ~/.zsh_plugings/zsh-snap/znap.zsh  # Start Znap
-
-# `znap prompt` makes your prompt visible in just 15-40ms!
-# znap prompt romkatv/powerlevel10k
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-znap prompt sindresorhus/pure
-
-# `znap source` automatically downloads and starts your plugins.
-znap source marlonrichert/zsh-autocomplete
-znap source zdharma-continuum/fast-syntax-highlighting
-
-# `znap eval` caches and runs any kind of command output for you.
-
-# `znap function` lets you lazy-load features you don't always need.
-znap function _pyenv pyenv 'eval "$( pyenv init - --no-rehash )"'
-compctl -K    _pyenv pyenv
+zinit ice depth"1" # git clone depth
+zinit light romkatv/powerlevel10k
+[[ ! -f ~/.p10k.zsh ]] | source ~/.p10k.zsh
 
 # Load bash profile
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
@@ -56,8 +42,6 @@ bindkey -s '' history-incremental-pattern-search-backward
 # Better history navigation
 bindkey '' up-history
 bindkey '' down-history
-
-fpath+=~/.zfunc
 
 # compinit
  
