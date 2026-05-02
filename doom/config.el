@@ -36,7 +36,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type 'visual)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -70,6 +70,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Options
 (setq! scroll-margin 10
        display-line-numbers 'visual)
 (setq-default tab-width 4)
@@ -77,6 +78,7 @@
 (setq! which-key-idle-delay 0.1)
 (setq doom-font (font-spec :size 16))
 (setq doom-big-font doom-font)
+;; TODO: set tab width to 2 spaces in elisp
 
 ;; enter calc already in emacs mode
 (add-hook 'calc-mode-hook 'evil-emacs-state)
@@ -91,6 +93,14 @@
 (map! :n "C-d" (lambda () (interactive)
   (evil-scroll-down 25)
   (recenter)
+))
+
+;; Help grep
+(map! :leader :n "h s" nil)
+(map! :leader (:prefix ("h s" . "search")
+  :desc "info"          :n "i" #'info-apropos
+  :desc "commands"      :n "c" #'apropos-command
+  :desc "documentation" :n "d" #'apropos-documentation
 ))
 
 
@@ -111,6 +121,7 @@
   (setq org-agenda-files '("~/org/agenda.org" "~/org/todo.org"))
   (setq org-roam-directory "~/notes/")
 )
+
 ;; Custom templates to disable automatic linking to current file
 (setq org-capture-templates
       '(("t" "Personal todo" entry (file+headline +org-capture-todo-file "Inbox")
@@ -147,6 +158,7 @@
         ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file
          "* %U %?\n %i\n %a" :heading "Changelog" :prepend t)
         ))
+
 ;; Custom org roam templates, TODO:
 (setq org-roam-capture-templates
       '(("d" "default" plain "* %?"
@@ -156,8 +168,25 @@
          :target (file+head "${slug}.org" "#+title: ${title}\n#+FILETAGS: :school:\n")
          :unnarrowed t)
 ))
-;; Custom org roam bindings
-(defun my/ring-goto ()
-    "Bind the org-mark-ring-goto"
-    (map! "M-o" 'org-mark-ring-goto))
-(add-hook! 'org-mode-hook 'my/ring-goto)
+
+;; NOTE: use C-k l* to insert a lambda char
+
+;; ORG HOOKS
+(after! org ;; Hooks that change default behaviour have to be loaded after the module
+  (add-hook 'org-mode-hook (lambda () (electric-indent-local-mode -1)))) ;; Disable indent
+
+;; M-<return> seems to work
+(map! :after org
+      :map evil-org-mode-map
+      ;; Reamap all return combinations
+      :ni "C-<return>"  #'+org/insert-item-below
+      ;; :ni "M-<return>"  #'+org/insert-item-below
+      ;; :ni "S-<return>"  #'+org/insert-item-below
+      ;; :ni "C-S-<return>"  #'+org/insert-item-below
+      ;; :ni "M-S-<return>"  #'+org/insert-item-below
+      ;; :ni "C-M-<return>"  #'+org/insert-item-below
+      ;; :ni "C-M-S-<return>"  #'+org/insert-item-below
+      ;; MISC
+      "M-o" #'org-mark-ring-goto
+)
+;; TODO: bind org-toggle-checkbox
