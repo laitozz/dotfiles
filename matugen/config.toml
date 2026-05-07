@@ -1,0 +1,21 @@
+[config]
+fallback_color = "#FFFFAA"
+prefere = "saturation"
+
+[config.wallpaper]
+set = true
+command = "awww img --transition-type center {{ image }}"
+
+[templates.waybar]
+input_path = 'templates/colors.css'
+output_path = '~/.config/waybar/colors.css'
+pre_hook = 'pkill waybar'
+post_hook = 'waybar &'
+
+[templates.hyprland]
+input_path = 'templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/hyprland-colors.conf'
+
+[templates.kitty]
+input_path = 'templates/kitty-colors.conf'
+output_path = '~/.config/kitty/kitty-colors.conf'

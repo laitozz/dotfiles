@@ -8,7 +8,7 @@
 @define-color textcolor3 #FFFFFF;
 @define-color iconcolor #FFFFFF;
 
-@import '../../.cache/wal/colors-waybar.css';
+@import "colors.css";
 
 * {
 	border: none;
