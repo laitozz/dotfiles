@@ -19,3 +19,8 @@ output_path = '~/.config/hypr/hyprland-colors.conf'
 [templates.kitty]
 input_path = 'templates/kitty-colors.conf'
 output_path = '~/.config/kitty/kitty-colors.conf'
+
+[templates.tmux]
+input_path = 'templates/tmux-colors.conf'
+output_path = '~/.config/tmux/tmux-colors.conf'
+post_hook = 'tmux source-file ~/.config/tmux/generated.conf' 
