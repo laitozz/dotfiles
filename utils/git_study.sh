@@ -7,16 +7,18 @@
 
 repo="$1"
 dir="${2:-$repo}"
-tmux_session_name="reference"
+
+tmux_session_name=$(basename "$repo" | tr . _)
 tmux_session_dir="$HOME/reference/aauto/$dir"
 
-git clone "https://github.com/$repo.git" "$tmux_session_dir"
+# TODO: check if $repo already starts with https://
+
+git clone "https://github.com/$repo.git" "$tmux_session_dir" --depth 1 --recursive
 cd "$tmux_session_dir" || exit 0
 nvim 
 
-# TODO: tmux session management
-# if not tmux has-session -t=$name 2> /dev/null; then
-#     tmux new-session -ds $name -c $dir
-# fi
-# tmux switch-client -t $name
+if ! tmux has-session -t="$tmux_session_name" 2> /dev/null; then
+    tmux new-session -ds "$tmux_session_name" -c "$tmux_session_dir"
+fi
 
+tmux switch-client -t "$tmux_session_name"
