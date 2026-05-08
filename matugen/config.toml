@@ -6,12 +6,6 @@ prefere = "saturation"
 set = true
 command = "awww img --transition-type center {{ image }}"
 
-[templates.waybar]
-input_path = 'templates/colors.css'
-output_path = '~/.config/waybar/colors.css'
-pre_hook = 'pkill waybar'
-post_hook = 'waybar &'
-
 [templates.hyprland]
 input_path = 'templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/hyprland-colors.conf'
@@ -24,3 +18,9 @@ output_path = '~/.config/kitty/kitty-colors.conf'
 input_path = 'templates/tmux-colors.conf'
 output_path = '~/.config/tmux/tmux-colors.conf'
 post_hook = 'tmux source-file ~/.config/tmux/generated.conf' 
+
+# [templates.waybar]
+# input_path = 'templates/colors.css'
+# output_path = '~/.config/waybar/colors.css'
+# pre_hook = 'pkill waybar'
+# post_hook = 'waybar &'
