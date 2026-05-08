@@ -1,0 +1,4 @@
+# https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+
+# Do not ask whether to create a new repo
+notARepository: skip
