@@ -1,9 +1,9 @@
 [submodule "nvim"]
 	path = nvim
 	url = https://github.com/spacerio/nvim
-[submodule "fish"]
-	path = fish
-	url = https://github.com/spacerio/fish
 [submodule "nixos"]
 	path = nixos
 	url = https://github.com/spacerio/nixos.git
+[submodule "tmux-resurrect"]
+	path = tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
