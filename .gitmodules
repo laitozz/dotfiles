@@ -7,3 +7,12 @@
 [submodule "tmux-resurrect"]
 	path = tmux/plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "tmux-thumbs"]
+	path = tmux/plugins/tmux-thumbs
+	url = https://github.com/tmux-plugins/tmux-thumbs
+[submodule "tmux-yank"]
+	path = tmux/plugins/tmux-yank
+	url = https://github.com/tmux-plugins/tmux-yank
+[submodule "tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
