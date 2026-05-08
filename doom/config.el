@@ -173,7 +173,10 @@
 
 ;; ORG HOOKS
 (after! org ;; Hooks that change default behaviour have to be loaded after the module
-  (add-hook 'org-mode-hook (lambda () (electric-indent-local-mode -1)))) ;; Disable indent
+  (add-hook 'org-mode-hook (lambda () (electric-indent-local-mode -1))) ;; Disable indent
+  ;; TODO: disable flyspell (highlight) in orgmodes
+  ;; (add-hook 'flyspell-mode-hook (lambda () (flyspell-mode -1)))
+)
 
 ;; M-<return> seems to work
 (map! :after org
