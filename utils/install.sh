@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+# include hidden files
+shopt -s dotglob
+
 DOTFILES_DIR="${1:-$HOME/dotfiles}"
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
@@ -14,10 +17,10 @@ for path in "$DOTFILES_DIR"/*; do
     [[ -e "$path" ]] || continue
 
 	# Skip git paths
-	[[ "$path" =~ ^\.git* ]] && continue
+	[[ "$name" =~ ^\.git.*$ ]] && continue
 
 	# Skip internal
-	[[ "$path" =~ (^nixos)|(^misc)|(^utils) ]] || continue 
+	[[ "$name" =~ ^(nixos)|(misc)|(utils)$ ]] && continue 
 
     if [[ -d "$path" ]]; then
         target="$XDG_CONFIG_HOME/$name"
@@ -32,7 +35,7 @@ for path in "$DOTFILES_DIR"/*; do
 
     if [[ -L "$target" || -e "$target" ]]; then
         echo "Existing target: $target"
-		exit
+		continue
     fi
 
     echo "Linking $path -> $target"
