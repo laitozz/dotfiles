@@ -16,6 +16,9 @@ for path in "$DOTFILES_DIR"/*; do
 	# Skip git paths
 	[[ "$path" =~ ^\.git* ]] && continue
 
+	# Skip internal
+	[[ "$path" =~ (^nixos)|(^misc)|(^utils) ]] || continue 
+
     if [[ -d "$path" ]]; then
         target="$XDG_CONFIG_HOME/$name"
 
