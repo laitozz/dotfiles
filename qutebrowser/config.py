@@ -40,7 +40,7 @@ config.bind(',m', "hint links spawn mpv {hint-url}")
 config.bind(',j', 'config-cycle content.javascript.enabled true false')
 config.bind(',d', 'config-cycle colors.webpage.darkmode.enabled true false')
 config.bind(',t', 'config-cycle tabs.position top left')
-config.bind(',f', 'spawn --userscript ddg_focus_search.sh')
+config.bind(',f', 'spawn --userscript focus_common_input.sh')
 
 # Navigation
 config.bind('x', "tab-close")
