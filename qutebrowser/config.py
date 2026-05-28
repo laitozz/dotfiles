@@ -11,6 +11,7 @@ c.url.searchengines = {
   'no': 'https://search.nixos.org/options?channel=unstable&query={}',
   'np': 'https://search.nixos.org/packages?channel=unstable&query={}',
   'nh': 'https://home-manager-options.extranix.com/?query={}&release=master',
+  'g': 'https://google.com/search?query={}',
 }
 c.editor.command = [ "kitty", "nvim", "{}" ]
 c.content.blocking.method = "both"
