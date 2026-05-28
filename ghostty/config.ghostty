@@ -1,0 +1,4 @@
+font-size = 14.0
+# theme = "Matugen"
+confirm-close-surface = false
+config-file = ?auto/theme.ghostty
