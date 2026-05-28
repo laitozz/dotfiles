@@ -15,15 +15,7 @@ G.menu_rofi = "rofi -show drun"
 G.menu_tofi = "kitty -e \"$(tofi-run)\""
 G.menu = G.menu_rofi
 
-local function get_hostname()
-  local handle = io.popen("hostname")
-  if not handle then return nil end
-  local result = handle:read("*l")
-  handle:close()
-  return result
-end
-
-G.hostname = get_hostname()
+G.hostname = require('modules.lib.utils').get_hostname()
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----

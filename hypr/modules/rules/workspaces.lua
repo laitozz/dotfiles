@@ -1,6 +1,6 @@
 hl.workspace_rule({
     workspace = "1",
-    -- TODO: manual review — workspace field "default"
+	default = true,
 })
 
 hl.workspace_rule({
