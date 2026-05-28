@@ -25,7 +25,7 @@ c.fonts.hints = "bold 14pt default_family"
 c.fonts.keyhint = 'default_size default_family'
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.preferred_color_scheme = 'dark'
-c.colors.webpage.darkmode.algorithm = 'lightness-hsl'
+c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 
 #########
 # Binds #
@@ -51,4 +51,6 @@ config.bind('E', 'tab-prev')
 config.bind('R', 'tab-next')
 config.bind('o', 'cmd-set-text -s :open -t')
 config.bind('O', 'cmd-set-text -s :open')
+config.bind('b', 'cmd-set-text -s :quickmark-load -t')
+config.bind('B', 'cmd-set-text -s :quickmark-load')
 config.bind('<Shift-Return>', 'selection-follow -t')
