@@ -22,4 +22,22 @@ hl.device({
     sensitivity = -0.5,
 })
 
+---------------
+---- INPUT ----
+---------------
+
+-- See https://wiki.hypr.land/Configuring/Basics/Variables/#input
+input = {
+	kb_layout = "us,fi",
+	kb_variant = "",
+	kb_model = "",
+	-- kb_options = ctrl:nocaps # Done on system level
+	kb_rules = "",
+	follow_mouse = 1,
+	sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+	touchpad = {
+		natural_scroll = false,
+	},
+},
+
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })

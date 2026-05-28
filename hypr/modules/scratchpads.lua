@@ -14,7 +14,7 @@ local scratchpads  = {
 	["kdeconnect"] = { key = "K", exec = "kdeconnect-app" },
 	["bluetui"]    = { key = "B", exec = "kitty bluetui" },
 	["btop"]       = { key = "O", exec = "kitty btop" },
-	["hyprland"]   = { key = "H", exec = "kitty nvim ~/dotfiles/hypr/hyprland.conf" },
+	["hyprland"]   = { key = "H", exec = "kitty nvim ~/dotfiles/hypr/" },
 }
 
 -- Initialize scratchpads

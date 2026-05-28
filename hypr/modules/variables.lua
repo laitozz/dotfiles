@@ -7,7 +7,7 @@ G = {}
 G.mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 G.term = "kitty"
-G.terminal = "kitty fish -c ta"
+G.terminal = "ghostty -e tmux"
 G.fileManager = "dolphin"
 G.browser = "firefox"
 G.emacs = "emacsclient -c"
@@ -23,6 +23,7 @@ for k,v in pairs(require('modules.lib.utils')) do
 end
 
 G.hostname = G.lib.get_hostname()
+G.debug = true
 
 
 -------------------------------

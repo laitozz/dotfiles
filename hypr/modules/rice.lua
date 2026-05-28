@@ -4,9 +4,23 @@
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config ({
+    general = {
+        gaps_in = 5,
+        gaps_out = 10,
+        border_size = 2,
+        col = {
+            active_border = { colors = { G.colors.primary, G.colors.error }, angle = 45 }
+        },
+        resize_on_border = false,
+        -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
+        allow_tearing = false,
+        layout = "dwindle",
+        no_focus_fallback = true,
+    },
 	-- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/#decoration
     decoration = {
-        rounding = 10,
+        rounding = 15,
+		rounding_power = 3,
         -- Change transparency of focused and unfocused windows
         active_opacity = 1,
         inactive_opacity = 1,
@@ -14,14 +28,15 @@ hl.config ({
         dim_strength = 0.2,
         shadow = {
             enabled = true,
-            range = 20,
+            range = 200,
             render_power = 4,
-            -- color = rgba(1a1a1aee)
-            -- color_inactive = rgb(00ff00)
-            color = G.colors.primary,
-            -- color_inactive = rgba(00ffee00)
-            color_inactive = G.colors.secondary,
+			scale = 0.9,
+            color = G.lib.update_alpha(G.colors.primary, "20"),
         },
+		glow = {
+			enabled = false,
+			range = 1,
+		},
 		-- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/#blur
         blur = {
             enabled = true,

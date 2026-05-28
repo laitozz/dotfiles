@@ -8,8 +8,29 @@ M.get_hostname = function ()
   return result
 end
 
-M.print = function (arg)
-	hl.exec_cmd("hyprctl notify 2 3000 '#00F' " .. arg)
+--- Sent a hyprland notification
+M.print = function (arg, duration)
+	if not G.debug then return end
+	duration = duration or 3000
+	hl.notification.create({ text = arg, duration = duration, icon = 1, font_size = 18 })
+end
+
+--- Print a table
+M.tprint = function (arg)
+	text = "{ \n"
+	for k,v in pairs(arg) do
+		text = text .. "\t" .. k .. " = " .. v .. "\n"
+	end
+	text = text .. "}"
+	M.print(text, 3 * string.len(text))
+end
+
+--- Change the alpha value of color
+--- @param color string
+M.update_alpha = function (color, alpha)
+	local new = color:gsub("[%d%w][%d%w]%)$", alpha .. ")")
+	G.lib.print(new)
+	return new
 end
 
 return M
