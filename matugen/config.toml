@@ -7,8 +7,8 @@ set = true
 command = "awww img --transition-type center {{ image }}"
 
 [templates.hyprland]
-input_path = 'templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/hyprland-colors.conf'
+input_path = 'templates/hyprland-colors.lua'
+output_path = '~/.config/hypr/hyprland-colors.lua'
 
 [templates.kitty]
 input_path = 'templates/kitty-colors.conf'
@@ -19,8 +19,7 @@ input_path = 'templates/tmux-colors.conf'
 output_path = '~/.config/tmux/tmux-colors.conf'
 post_hook = 'tmux source-file ~/.config/tmux/generated.conf' 
 
-# [templates.waybar]
-# input_path = 'templates/colors.css'
-# output_path = '~/.config/waybar/colors.css'
-# pre_hook = 'pkill waybar'
-# post_hook = 'waybar &'
+[templates.ghostty]
+input_path = 'templates/ghostty'
+output_path = '~/.config/ghostty/themes/Matugen'
+post_hook = 'pkill -SIGUSR2 ghostty'
