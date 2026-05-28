@@ -4,6 +4,8 @@ hl.window_rule({
         class = "steam",
     },
     workspace = "special:steam silent",
+	float = false,
+	maximize = true,
 })
 
 hl.window_rule({

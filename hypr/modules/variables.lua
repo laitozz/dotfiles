@@ -3,6 +3,7 @@
 -------------------
 
 G = {}
+
 G.mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 G.term = "kitty"
@@ -15,7 +16,14 @@ G.menu_rofi = "rofi -show drun"
 G.menu_tofi = "kitty -e \"$(tofi-run)\""
 G.menu = G.menu_rofi
 
-G.hostname = require('modules.lib.utils').get_hostname()
+-- Move utils to global scope
+G.lib = {}
+for k,v in pairs(require('modules.lib.utils')) do
+	G.lib[k] = v
+end
+
+G.hostname = G.lib.get_hostname()
+
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----

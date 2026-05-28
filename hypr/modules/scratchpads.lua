@@ -4,73 +4,35 @@
 
 local scratchpadSize = "size (monitor_w*0.8) (monitor_h*0.8)"
 
--- TODO: dictionary and a loop
+-- scratchpad definitions
+local scratchpads  = {
+	["terminal"]   = { key = "Y", exec = "kitty" },
+	["nh"]         = { key = "U", exec = "kitty ~/dotfiles/utils/nh.sh" },
+	["spotify"]    = { key = "P", exec = "kitty ncspot" },
+	["impala"]     = { key = "I", exec = "kitty impala" },
+	["steam"]      = { key = "G", exec = "steam" },
+	["kdeconnect"] = { key = "K", exec = "kdeconnect-app" },
+	["bluetui"]    = { key = "B", exec = "kitty bluetui" },
+	["btop"]       = { key = "O", exec = "kitty btop" },
+	["hyprland"]   = { key = "H", exec = "kitty nvim ~/dotfiles/hypr/hyprland.conf" },
+}
 
-hl.workspace_rule({
-    workspace = "special:terminal",
-    ["on_created_empty"] = "[float; " .. scratchpadSize .. "] kitty",
-    persistent = false,
-})
+-- Initialize scratchpads
+for name, pad in pairs(scratchpads) do
+	hl.workspace_rule({
+		workspace = "special:" .. name,
+		["on_created_empty"] = "[float; " .. scratchpadSize .. "]" .. pad.exec,
+		persistent = false,
+	})
+end
 
-hl.workspace_rule({
-    workspace = "special:nh",
-    ["on_created_empty"] = "[float; " .. scratchpadSize .. "] kitty ~/dotfiles/utils/nh.sh",
-    persistent = false,
-})
 
-hl.workspace_rule({
-    workspace = "special:spotify",
-    ["on_created_empty"] = "[float; " .. scratchpadSize .. "] kitty ncspot",
-    persistent = false,
-})
-
-hl.workspace_rule({
-    workspace = "special:impala",
-    ["on_created_empty"] = "[float; " .. scratchpadSize .. "] kitty impala",
-    persistent = false,
-})
-
-hl.workspace_rule({
-    workspace = "special:steam",
-    ["on_created_empty"] = "[float; " .. scratchpadSize .. "] steam",
-    persistent = false,
-})
-
-hl.workspace_rule({
-    workspace = "special:kdeconnect",
-    ["on_created_empty"] = "[float; " .. scratchpadSize .. "] kdeconnect-app",
-    persistent = false,
-})
-
-hl.workspace_rule({
-    workspace = "special:bluetui",
-    ["on_created_empty"] = "[float; " .. scratchpadSize .. "] kitty bluetui",
-    persistent = false,
-})
-
-hl.workspace_rule({
-    workspace = "special:btop",
-    ["on_created_empty"] = "[float; " .. scratchpadSize .. "] kitty btop",
-    persistent = false,
-})
-
-hl.workspace_rule({
-    workspace = "special:hyprland",
-    ["on_created_empty"] = "[float; " .. scratchpadSize .. "] kitty nvim ~/dotfiles/hypr/hyprland.conf",
-    persistent = false,
-})
-
+-- Binds for scratchpads
 hl.bind(G.mainMod .. " + S", hl.dsp.submap("scratchpads"))
 hl.define_submap("scratchpads", function()
-	hl.bind(G.mainMod .. " + P", hl.dsp.workspace.toggle_special("spotify"))
-	hl.bind(G.mainMod .. " + U", hl.dsp.workspace.toggle_special("nh"))
-	hl.bind(G.mainMod .. " + Y", hl.dsp.workspace.toggle_special("terminal"))
-	hl.bind(G.mainMod .. " + I", hl.dsp.workspace.toggle_special("impala"))
-	hl.bind(G.mainMod .. " + G", hl.dsp.workspace.toggle_special("steam"))
-	hl.bind(G.mainMod .. " + K", hl.dsp.workspace.toggle_special("kdeconnect"))
-	hl.bind(G.mainMod .. " + B", hl.dsp.workspace.toggle_special("bluetui"))
-	hl.bind(G.mainMod .. " + M", hl.dsp.workspace.toggle_special("btop"))
-	hl.bind(G.mainMod .. " + H", hl.dsp.workspace.toggle_special("hyprland"))
+	for name, pad in pairs(scratchpads) do
+		hl.bind(G.mainMod .. " + " .. pad.key, hl.dsp.workspace.toggle_special(name))
+	end
 	hl.bind(G.mainMod .. " + S", hl.dsp.no_op())
 	hl.bind("catchall", hl.dsp.submap("reset"))
 end)

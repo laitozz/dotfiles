@@ -8,4 +8,8 @@ M.get_hostname = function ()
   return result
 end
 
+M.print = function (arg)
+	hl.exec_cmd("hyprctl notify 2 3000 '#00F' " .. arg)
+end
+
 return M
