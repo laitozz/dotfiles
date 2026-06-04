@@ -12,6 +12,7 @@ c.url.searchengines = {
   'np': 'https://search.nixos.org/packages?channel=unstable&query={}',
   'nh': 'https://home-manager-options.extranix.com/?query={}&release=master',
   'g': 'https://google.com/search?query={}',
+  'b': 'https://search.brave.com/search?q={}',
 }
 c.editor.command = [ "kitty", "nvim", "{}" ]
 c.content.blocking.method = "both"

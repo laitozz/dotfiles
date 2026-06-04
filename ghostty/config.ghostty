@@ -2,3 +2,5 @@ font-size = 14.0
 # theme = "Matugen"
 confirm-close-surface = false
 config-file = ?auto/theme.ghostty
+shell-integration-features = true
+adjust-cursor-thickness = 250%
