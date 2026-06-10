@@ -19,3 +19,6 @@
 [submodule "qutebrowser/dracula"]
 	path = qutebrowser/dracula
 	url = https://github.com/dracula/qutebrowser-dracula-theme.git
+[submodule "qutebrowser/catppuccin"]
+	path = qutebrowser/catppuccin
+	url = https://github.com/catppuccin/qutebrowser
