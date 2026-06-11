@@ -5,7 +5,8 @@ config.load_autoconfig(False)
 
 c.tabs.position = "left"
 c.url.searchengines = {
-  'DEFAULT': 'https://duckduckgo.com?q={}',
+  # 'DEFAULT': 'https://duckduckgo.com?q={}',
+  'DEFAULT': 'http://localhost:8888/search?q={}',
   'aw': 'https://wiki.archlinux.org/?search={}',
   'gh': 'https://github.com/search?q={}',
   'no': 'https://search.nixos.org/options?channel=unstable&query={}',
@@ -35,9 +36,11 @@ c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 # Leader
 config.bind('<space>r', "config-source")
 config.bind('<space>e', "config-edit")
-config.bind('<space>o', "cmd-set-text :open -t !")
 config.bind('<space>m', "spawn mpv {url}")
 config.bind('<space>c', "open -t {clipboard}")
+config.bind('<space>x', "open -t http://localhost:8888/preferences")
+config.bind('<space>oc', "open -t https://claude.ai/new")
+config.bind(',o', "cmd-set-text :open -t !")
 config.bind(',m', "hint links spawn mpv {hint-url}")
 config.bind(',j', 'config-cycle content.javascript.enabled true false')
 config.bind(',d', 'config-cycle colors.webpage.darkmode.enabled true false')

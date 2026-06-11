@@ -6,11 +6,6 @@
 
 config_version: 2
 settings:
-  colors.webpage.darkmode.enabled:
-    global: false
   content.javascript.clipboard:
     https://claude.ai: access-paste
     https://github.com: access-paste
-    https://wiki.hypr.land: access-paste
-  content.javascript.enabled:
-    global: true
