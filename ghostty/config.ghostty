@@ -4,3 +4,4 @@ confirm-close-surface = false
 config-file = ?auto/theme.ghostty
 shell-integration-features = true
 adjust-cursor-thickness = 250%
+background = #1e1e2e
