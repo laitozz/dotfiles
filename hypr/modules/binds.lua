@@ -21,6 +21,14 @@ hl.bind(G.mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(G.emacs))
 hl.bind(G.mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
 hl.bind(G.mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
 
+-- Scripts
+hl.bind(G.mainMod .. " + D", hl.dsp.exec_cmd("~/dotfiles/scripts/define.sh"))
+hl.bind(G.mainMod .. " + U", hl.dsp.submap("scripts"))
+hl.define_submap("scripts", function()
+	hl.bind(G.mainMod .. " + D", hl.dsp.exec_cmd("~/dotfiles/scripts/define.sh"))
+	hl.bind("catchall", hl.dsp.submap("reset"))
+end)
+
 -- Internal
 hl.bind(G.mainMod .. " + F1", hl.dsp.exec_cmd("firefox https://wiki.hypr.land/Configuring/Window-Rules"))
 hl.bind(G.mainMod .. " + F2", hl.dsp.exec_cmd("kitty nvim ~/.config/hypr/hyprland.conf"))
@@ -37,7 +45,7 @@ hl.bind(G.mainMod .. " + T", hl.dsp.submap("tiling"))
 hl.define_submap("tiling", function()
 	hl.bind(G.mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 	hl.bind(G.mainMod .. " + P", hl.dsp.window.pseudo())
-	hl.bind(G.mainMod .. " + T", hl.dsp.layout("togglesplit"))
+	hl.bind(G.mainMod .. " + S", hl.dsp.layout("togglesplit"))
 	hl.bind(G.mainMod .. " + F", hl.dsp.layout("swapwithmaster"))
 	hl.bind("catchall", hl.dsp.submap("reset"))
 end)
