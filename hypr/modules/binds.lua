@@ -33,10 +33,9 @@ hl.bind("CTRL + SHIFT + 8", hl.dsp.exec_cmd("hyprctl switchxkblayout keyd-virtua
 hl.bind("CTRL + SHIFT + 9", hl.dsp.exec_cmd("hyprctl switchxkblayout keyd-virtual-keyboard 0"))
 
 -- Scripts
-hl.bind(G.mainMod .. " + D", hl.dsp.exec_cmd("~/dotfiles/scripts/define.sh"))
 hl.bind(G.mainMod .. " + U", hl.dsp.submap("scripts"))
 hl.define_submap("scripts", function()
-	hl.bind(G.mainMod .. " + D", hl.dsp.exec_cmd("~/dotfiles/scripts/define.sh"))
+	hl.bind(G.mainMod .. " + D", hl.dsp.exec_cmd("~/dotfiles/scripts/wl-define.py"))
 	hl.bind(G.mainMod .. " + K", hl.dsp.exec_cmd("~/dotfiles/scripts/hyprkeys.py html --open"))
 	hl.bind(G.mainMod .. " + Space", hl.dsp.exec_cmd("ls ~/dotfiles/scripts | rofi -dmenu"))
 	hl.bind("Space", hl.dsp.exec_cmd("ls ~/dotfiles/scripts | rofi -dmenu"))
