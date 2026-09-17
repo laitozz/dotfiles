@@ -8,7 +8,7 @@ local scratchpadSize = "size (monitor_w*0.8) (monitor_h*0.8)"
 local scratchpads  = {
 	["terminal"]   = { key = "Y", exec = "kitty" },
 	["nh"]         = { key = "U", exec = "kitty ~/dotfiles/utils/nh.sh" },
-	["spotify"]    = { key = "P", exec = "kitty ncspot" },
+	["spotify"]    = { key = "M", exec = "kitty ncspot" },
 	["impala"]     = { key = "I", exec = "kitty impala" },
 	["steam"]      = { key = "G", exec = "steam" },
 	["kdeconnect"] = { key = "K", exec = "kdeconnect-app" },

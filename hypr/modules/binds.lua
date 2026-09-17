@@ -3,15 +3,15 @@
 -------------------
 
 -- Base
-hl.bind(G.mainMod .. " + Q", hl.dsp.exec_cmd(G.term))
 hl.bind(G.mainMod .. " + C", hl.dsp.window.close())
 hl.bind(G.mainMod .. " + M", hl.dsp.exec_cmd("wlogout"))
-hl.bind(G.mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+hl.bind(G.mainMod .. " + V", hl.dsp.exec_cmd([[cliphist list | rofi -dmenu | cliphist decode | wl-copy && hyprctl dispatch 'hl.dsp.send_shortcut({ mods = "CTRL + SHIFT", key = "V" })']]))
 hl.bind(G.mainMod .. " + SHIFT + M", hl.dsp.exit())
 hl.bind(G.mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 
 -- Applications
 hl.bind(G.mainMod .. " + Space", hl.dsp.exec_cmd(G.menu))
+hl.bind(G.mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(G.term))
 hl.bind(G.mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("wofi --show drun"))
 hl.bind(G.mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("tofi-run"))
 hl.bind(G.mainMod .. " + SHIFT + O", hl.dsp.exec_cmd(G.terminal))
@@ -20,14 +20,6 @@ hl.bind(G.mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("qutebrowser"))
 hl.bind(G.mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(G.emacs))
 hl.bind(G.mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
 hl.bind(G.mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
-
--- Scripts
-hl.bind(G.mainMod .. " + D", hl.dsp.exec_cmd("~/dotfiles/scripts/define.sh"))
-hl.bind(G.mainMod .. " + U", hl.dsp.submap("scripts"))
-hl.define_submap("scripts", function()
-	hl.bind(G.mainMod .. " + D", hl.dsp.exec_cmd("~/dotfiles/scripts/define.sh"))
-	hl.bind("catchall", hl.dsp.submap("reset"))
-end)
 
 -- Internal
 hl.bind(G.mainMod .. " + F1", hl.dsp.exec_cmd("firefox https://wiki.hypr.land/Configuring/Window-Rules"))
@@ -39,6 +31,17 @@ hl.bind(G.mainMod .. " + F8", hl.dsp.exec_cmd("~/.config/hypr/gamemode.sh"))
 -- Keyboard switching
 hl.bind("CTRL + SHIFT + 8", hl.dsp.exec_cmd("hyprctl switchxkblayout keyd-virtual-keyboard 1"))
 hl.bind("CTRL + SHIFT + 9", hl.dsp.exec_cmd("hyprctl switchxkblayout keyd-virtual-keyboard 0"))
+
+-- Scripts
+hl.bind(G.mainMod .. " + D", hl.dsp.exec_cmd("~/dotfiles/scripts/define.sh"))
+hl.bind(G.mainMod .. " + U", hl.dsp.submap("scripts"))
+hl.define_submap("scripts", function()
+	hl.bind(G.mainMod .. " + D", hl.dsp.exec_cmd("~/dotfiles/scripts/define.sh"))
+	hl.bind(G.mainMod .. " + K", hl.dsp.exec_cmd("~/dotfiles/scripts/hyprkeys.py html --open"))
+	hl.bind(G.mainMod .. " + Space", hl.dsp.exec_cmd("ls ~/dotfiles/scripts | rofi -dmenu"))
+	hl.bind("Space", hl.dsp.exec_cmd("ls ~/dotfiles/scripts | rofi -dmenu"))
+	hl.bind("catchall", hl.dsp.submap("reset"))
+end)
 
 -- Tiling
 hl.bind(G.mainMod .. " + T", hl.dsp.submap("tiling"))
