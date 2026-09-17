@@ -1,6 +1,8 @@
 api.map('F', 'gf');
 api.map('H', 'E');
 api.map('L', 'R');
+api.map('J', 'L');
+api.map('K', 'H');
 //api.map('e', 'f');
 //api.map('E', 'F');
 
