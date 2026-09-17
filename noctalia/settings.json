@@ -163,7 +163,7 @@
                 },
                 {
                     "deviceNativePath": "__default__",
-                    "displayMode": "graphic-clean",
+                    "displayMode": "graphic",
                     "hideIfIdle": false,
                     "hideIfNotDetected": true,
                     "id": "Battery",
@@ -251,15 +251,15 @@
             },
             {
                 "enabled": true,
+                "id": "weather-card"
+            },
+            {
+                "enabled": true,
                 "id": "audio-card"
             },
             {
                 "enabled": false,
                 "id": "brightness-card"
-            },
-            {
-                "enabled": true,
-                "id": "weather-card"
             },
             {
                 "enabled": true,
@@ -436,8 +436,8 @@
         "autoLocate": false,
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
-        "hideWeatherTimezone": false,
-        "name": "Jyväskylä",
+        "hideWeatherTimezone": true,
+        "name": "riihimaki",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
