@@ -19,6 +19,7 @@ hl.bind(G.mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("firefox"))
 hl.bind(G.mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("qutebrowser"))
 hl.bind(G.mainMod .. " + SHIFT + E", hl.dsp.exec_cmd(G.emacs))
 hl.bind(G.mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
+hl.bind(G.mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("steam"))
 hl.bind(G.mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
 
 -- Internal
@@ -74,6 +75,7 @@ for i = 1, 10 do
     hl.bind(G.mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 hl.bind(G.mainMod .. " + grave", hl.dsp.focus({ workspace = "name:games" }))
+hl.bind(G.mainMod .. " + SHIFT + grave", hl.dsp.window.move({ workspace = "name:games" }))
 
 -- Mouse
 hl.bind(G.mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

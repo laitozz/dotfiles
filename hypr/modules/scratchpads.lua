@@ -10,7 +10,6 @@ local scratchpads  = {
 	["nh"]         = { key = "U", exec = "kitty ~/dotfiles/utils/nh.sh" },
 	["spotify"]    = { key = "M", exec = "kitty ncspot" },
 	["impala"]     = { key = "I", exec = "kitty impala" },
-	["steam"]      = { key = "G", exec = "steam" },
 	["kdeconnect"] = { key = "K", exec = "kdeconnect-app" },
 	["bluetui"]    = { key = "B", exec = "kitty bluetui" },
 	["btop"]       = { key = "O", exec = "kitty btop" },

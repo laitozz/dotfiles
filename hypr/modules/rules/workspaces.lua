@@ -8,6 +8,11 @@ hl.workspace_rule({
     layout = "scrolling",
 })
 
+hl.workspace_rule({
+    workspace = "name:games",
+    layout = "scrolling",
+})
+
 -- So that we can have rounding on scratchpads
 for i = 1, 10 do
 	hl.workspace_rule({
