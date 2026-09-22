@@ -29,6 +29,10 @@ hl.bind(G.mainMod .. " + F5", hl.dsp.exec_cmd("~/dotfiles/utils/matugen.sh"))
 hl.bind(G.mainMod .. " + F7", hl.dsp.exec_cmd("noctalia-shell kill; noctalia-shell &"))
 hl.bind(G.mainMod .. " + F8", hl.dsp.exec_cmd("~/.config/hypr/gamemode.sh"))
 
+-- Mouseless mouse
+-- TODO: bind Print to a mouse submap
+hl.bind("Print", hl.dsp.exec_cmd("wl-kbptr -o modes=floating,click -o mode_floating.source=detect"))
+
 -- Keyboard switching
 hl.bind("CTRL + SHIFT + 8", hl.dsp.exec_cmd("hyprctl switchxkblayout keyd-virtual-keyboard 1"))
 hl.bind("CTRL + SHIFT + 9", hl.dsp.exec_cmd("hyprctl switchxkblayout keyd-virtual-keyboard 0"))
