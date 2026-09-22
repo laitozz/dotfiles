@@ -44,10 +44,16 @@ hl.config({
         kb_rules = "",
         follow_mouse = 1,
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+		force_no_accel = true,
         touchpad = {
             natural_scroll = false,
         },
     },
     -- Example per-device config
 	-- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
+	hl.device({
+		name = "etps/2-elantech-touchpad",
+		sensitivity = 0.25
+	})
+
 })
