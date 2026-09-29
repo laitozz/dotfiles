@@ -23,7 +23,7 @@ hl.bind(G.mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("steam"))
 hl.bind(G.mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
 
 -- Internal
-hl.bind(G.mainMod .. " + F1", hl.dsp.exec_cmd("firefox https://wiki.hypr.land/Configuring/Window-Rules"))
+hl.bind(G.mainMod .. " + F1", hl.dsp.exec_cmd("firefox https://wiki.hypr.land"))
 hl.bind(G.mainMod .. " + F2", hl.dsp.exec_cmd("kitty nvim ~/.config/hypr/hyprland.conf"))
 hl.bind(G.mainMod .. " + F5", hl.dsp.exec_cmd("~/dotfiles/utils/matugen.sh"))
 hl.bind(G.mainMod .. " + F7", hl.dsp.exec_cmd("noctalia-shell kill; noctalia-shell &"))
